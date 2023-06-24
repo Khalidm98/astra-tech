@@ -38,7 +38,12 @@ class _PhotoListState extends State<PhotoList> {
 
         final photos = controller.photos!;
         if (photos.isEmpty)
-          return const Text('There is no photos.\nAdd a new one.');
+          return const Center(
+            child: Text(
+              'There is no photos.\nAdd a new one.',
+              textAlign: TextAlign.center,
+            ),
+          );
 
         return ListView.separated(
           itemCount: photos.length,
