@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'AstraTech',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(centerTitle: true),
+      ),
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.initialRoute,
       getPages: Routes.routes,

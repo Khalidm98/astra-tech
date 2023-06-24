@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants/assets.dart';
 
@@ -19,7 +21,12 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-    _controller.forward();
+    _controller.forward().then((_) {
+      if (FirebaseAuth.instance.currentUser == null)
+        Get.offNamed('/login');
+      else
+        Get.offNamed('/photo');
+    });
   }
 
   @override
